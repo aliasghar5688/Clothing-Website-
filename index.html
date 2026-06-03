@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Wear</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+#cart {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  background: black;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  z-index: 999;
+}
+
+.cart-btn {
+  background: #ff3b3b;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cart-btn:hover {
+  background: #c40000;
+}
+</style>
+ 
+</head>
+
+<body>
+
+<!-- CART -->
+<div id="cart">
+🛒 Cart: <span id="cart-count">0</span>
+<button class="btn" onclick="generateInvoice()">Download Invoice (PDF)</button>
+</div>
+
+<header>
+  <h1>Urban Wear</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="contact.html" target="_blank">Contact</a>
+      <a href="checkout.html" target="_blank">Checkout</a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h2>New Fashion Collection</h2>
+    <p>Modern Clothing For Men & Women</p>
+    <a href="#products" class="btn">Shop Now</a>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+
+<h2>Featured Products</h2>
+
+<div class="product-container">
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=400&q=80">
+    <h3>Classic T-Shirt</h3>
+    <p class="price">$25</p>
+    <button class="cart-btn" onclick="addToCart('Classic T-Shirt', 25)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=400&q=80">
+    <h3>Blue Jeans</h3>
+    <p class="price">$40</p>
+    <button class="cart-btn" onclick="addToCart('Blue Jeans', 40)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=400&q=80">
+    <h3>Winter Jacket</h3>
+    <p class="price">$60</p>
+    <button class="cart-btn" onclick="addToCart('Winter Jacket', 60)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80">
+    <h3>Red Sneakers</h3>
+    <p class="price">$50</p>
+    <button class="cart-btn" onclick="addToCart('Red Sneakers', 50)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=400&q=80">
+    <h3>Fashion Cap</h3>
+    <p class="price">$15</p>
+    <button class="cart-btn" onclick="addToCart('Fashion Cap', 15)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=400&q=80">
+    <h3>Formal Shirt</h3>
+    <p class="price">$30</p>
+    <button class="cart-btn" onclick="addToCart('Formal Shirt', 30)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=400&q=80">
+    <h3>Summer Dress</h3>
+    <p class="price">$45</p>
+    <button class="cart-btn" onclick="addToCart('Summer Dress', 45)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=400&q=80">
+    <h3>Formal Blazer</h3>
+    <p class="price">$90</p>
+    <button class="cart-btn" onclick="addToCart('Formal Blazer', 90)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1571945153237-4929e783af4a?auto=format&fit=crop&w=400&q=80">
+    <h3>Polo Shirt</h3>
+    <p class="price">$28</p>
+    <button class="cart-btn" onclick="addToCart('Polo Shirt', 28)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1520975661595-6453be3f7070?auto=format&fit=crop&w=400&q=80">
+    <h3>Leather Jacket</h3>
+    <p class="price">$80</p>
+    <button class="cart-btn" onclick="addToCart('Leather Jacket', 80)">Add to Cart</button>
+  </div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<h2>About Urban Wear</h2>
+<p>Urban Wear provides modern fashion clothing for men and women.</p>
+</section>
+
+<footer>
+<p>© 2026 Urban Wear</p>
+</footer>
+
+<script>
+let cart = [];
+
+function addToCart(name, price) {
+  cart.push({ name, price });
+  document.getElementById("cart-count").innerText = cart.length;
+
+  alert(name + " added to cart!");
+}
+</script>
+
+</body>
+</html>
